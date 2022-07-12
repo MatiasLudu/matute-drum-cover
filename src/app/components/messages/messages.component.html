@@ -1,0 +1,12 @@
+<div class="container">
+	<h2>Mensajes</h2>
+
+	<ul>
+		<li *ngFor="let message of messages" class="message">
+			<h3> Nombre: {{message.name}} </h3>
+			<h4> Email: {{message.email}} </h4>
+			<p> {{message.message_content}} </p>
+			
+ 		</li>
+	</ul>
+</div>

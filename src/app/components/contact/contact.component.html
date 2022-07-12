@@ -1,0 +1,48 @@
+
+
+<div class="container" *ngIf="message">
+	
+	<article class="about">
+		<h2>Dejame un mensaje.</h2>
+		<p>
+			Escribite un mensaje y dejame tu datos, así te lleno la casilla con mails basura y spam, y si tenes suerte puede que te conteste el mensaje (mentira). ESTA PARTE ESTA IMPLEMENTADA PERO NO ACTIVADA, por ende no anda, ni te gastes en escribir porque no funciona.
+		</p>
+	</article>
+
+
+	<div class="mensaje success" *ngIf="status == 'success'">
+		El mensaje se ha enviado correctamente.
+	</div>
+
+	<div class="mensaje failed" *ngIf="status == 'failed'">
+		El mensaje NO se ha podido enviar.
+	</div>
+
+	<form #messageForm="ngForm" (ngSubmit)="onSubmit(messageForm)">
+		<p>
+			<label for="name">Nombre</label>
+			<input maxlength="30" type="text" name="name" #name="ngModel" [(ngModel)]="message.name" required/>
+			<span class="form_error" *ngIf="name.touched && !name.valid">
+				El nombre es obligatorio. No puede ser que no tengas un nombre.
+			</span>
+		</p>
+
+		<p>
+			<label for="email">Email</label>
+			<input maxlength="30" type="text" name="email" #email="ngModel" [(ngModel)]="message.email" required/>
+			<span class="form_error" *ngIf="email.touched && !email.valid">
+				El email es obligatorio. Sino dónde te voy a mandar el spam jaja.
+			</span>
+		</p>
+
+		<p>
+			<label for="message_content">Mensaje</label>
+			<textarea maxlength="500" name="message_content" #message_content="ngModel" [(ngModel)]="message.message_content" required> </textarea>
+			<span class="form_error" *ngIf="message_content.touched && !message_content.valid">
+				El mensaje es obligatorio. ¿Para qué viniste hasta acá si no vas a decir nada?
+			</span>
+		</p>
+
+		<input type="submit" value="Enviar" [disabled]="!messageForm.form.valid" />
+	</form>	
+</div>

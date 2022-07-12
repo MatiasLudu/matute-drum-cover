@@ -1,0 +1,27 @@
+<header>
+
+  
+    <ul>
+       <li><a [routerLink]="['/home']" [routerLinkActive]="['actived']">Home</a></li>
+       <li><a [routerLink]="['/about']" [routerLinkActive]="['actived']">About</a></li>
+       <li><a [routerLink]="['/drum-covers']" [routerLinkActive]="['actived']">Drum Covers</a></li>
+       <li><a [routerLink]="['/decades-drum-series']" [routerLinkActive]="['actived']">Decades Drum Series</a></li>
+       <li><a [routerLink]="['/contact']" [routerLinkActive]="['actived']">Contact</a></li>
+    </ul> 
+
+   
+
+ 
+  
+  
+  
+</header>
+
+<section id="content">
+  <router-outlet></router-outlet>  
+  <app-scroll-to-top></app-scroll-to-top>
+</section>
+
+<footer>
+  Hecho por Matias Ludueña. 2021 <span id="copy">&copy;</span>
+</footer>
